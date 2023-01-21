@@ -1,7 +1,4 @@
 
-//a function that will trigger onClick of the buwn
-//a function that will read out randomized results from all ten dictionaries.
-
 const rawChaos = {
     0: "Everything in a 30 ft. radius turns purple.",
     1: "You and the nearest sentient thing switch bodies, but not positions. Permanently.",
@@ -934,7 +931,6 @@ const elderCalling = {
     899: "You speak the name of the Unspeakable One. Your tongue twists and snaps and bleeds as you utter its horrible vowels. Your Target then takes 8d20 DMG.",
     }
     
-    
 
     const hundredRandomCurses = {
         0: "You have no idea what this curse does. You're pretty sure it's one of the worst curses a person could think of. [This curse takes the form of whatever someone at the table thinks the curse is.]",
@@ -1038,3 +1034,20 @@ const elderCalling = {
         98: "Your entire family forgets who you are and everything about you.",
         99: "Roll on this curse table 3 times. These three curses are counted as a singular combined mega-curse.",
         }
+
+
+        const fantasyGenerator = [rawChaos, tidesOfChange, shockingLuck, pyromania, arcaneGamble, umbralRole, verdantEruption, undyingChance, elderCalling, hundredRandomCurses];
+
+    function randomResult() {
+        let finalResult = [];
+        for (let i = 0; i < fantasyGenerator.length; i++) {
+            let generator = fantasyGenerator[i];
+            let keys = Object.keys(generator);
+            let len = keys.length;
+            let rnd = Math.floor(Math.random() * len);
+            let roll = generator[keys[rnd]];
+            finalResult.push(roll);
+        }
+        document.getElementById("generation-display").innerHTML = finalResult;
+        
+    }
