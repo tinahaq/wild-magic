@@ -1048,6 +1048,7 @@ const elderCalling = {
             let roll = generator[keys[rnd]];
             finalResult.push(roll);
         }
+        finalResult.join("<br>");
         document.getElementById("generation-display").innerHTML = finalResult;
         
     }
